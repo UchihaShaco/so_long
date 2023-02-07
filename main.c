@@ -6,14 +6,11 @@
 /*   By: jalwahei <jalwahei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 17:02:03 by jalwahei          #+#    #+#             */
-/*   Updated: 2023/02/07 19:48:41 by jalwahei         ###   ########.fr       */
+/*   Updated: 2023/02/07 21:31:38 by jalwahei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-#include "mlx/mlx.h"
-#include <stdio.h>
 
 void	fill_map(t_v *v, int i, int j)
 {

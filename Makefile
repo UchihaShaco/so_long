@@ -6,7 +6,7 @@
 #    By: jalwahei <jalwahei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/28 15:25:35 by jalwahei          #+#    #+#              #
-#    Updated: 2023/02/07 19:22:03 by jalwahei         ###   ########.fr        #
+#    Updated: 2023/02/07 20:04:09 by jalwahei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	make -C ./libft
 	make -C ./ft_printf
+	make -C ./mlx
 	$(CC) $(CFLAGS) $(SRCS) -framework OpenGL -framework AppKit ./mlx/libmlx.a ./libft/libft.a ./ft_printf/libftprintf.a -o $(NAME)
 
 %.o: %.c
