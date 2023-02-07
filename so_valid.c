@@ -6,7 +6,7 @@
 /*   By: jalwahei <jalwahei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 16:48:45 by jalwahei          #+#    #+#             */
-/*   Updated: 2023/02/07 18:57:17 by jalwahei         ###   ########.fr       */
+/*   Updated: 2023/02/07 19:49:33 by jalwahei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,26 @@ int	ft_exit(t_v *v)
 {
 	free(v);
 	exit(0);
+	return (0);
+}
+
+int	validation_c(t_v *v)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (i < v->n_lines)
+	{
+		j = 0;
+		while (j < (v->col_s - 1))
+		{
+			if (v->map[i][j] == 'C')
+				return (1);
+			j++;
+		}
+		i++;
+	}
 	return (0);
 }

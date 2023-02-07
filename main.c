@@ -6,7 +6,7 @@
 /*   By: jalwahei <jalwahei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 17:02:03 by jalwahei          #+#    #+#             */
-/*   Updated: 2023/02/07 18:57:17 by jalwahei         ###   ########.fr       */
+/*   Updated: 2023/02/07 19:48:41 by jalwahei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,12 +108,12 @@ int	main(int argc, char **argv)
 	int		line_s;
 	t_v		*v;
 
+	if (argc != 2)
+		return (0);
 	if (validation_ber(argv[1]) == 0)
 		print_error();
 	v = malloc(sizeof(t_v));
 	v->mlx = mlx_init();
-	if (argc != 2)
-		return (0);
 	fd = open(argv[1], O_RDONLY);
 	line_s = find_column_and_line_size(fd, v);
 	v->mlx_win = mlx_new_window(v->mlx, (v->col_s - 1) * 64, line_s * 64, "K");

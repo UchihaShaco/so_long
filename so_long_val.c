@@ -6,7 +6,7 @@
 /*   By: jalwahei <jalwahei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 14:01:20 by jalwahei          #+#    #+#             */
-/*   Updated: 2023/02/07 18:57:17 by jalwahei         ###   ########.fr       */
+/*   Updated: 2023/02/07 19:49:31 by jalwahei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	valid_p_c_e(t_v *v)
 	}
 	if (v->c_count < 1 || v->p_count != 1 || v->e_count != 1)
 	{
-		ft_printf("ERROR MAP3\n");
+		ft_printf("ERROR MAP\n");
 		ft_exit(v);
 	}
 	return (1);
@@ -42,7 +42,11 @@ int	valid_p_c_e(t_v *v)
 
 int	val_rectangle(t_v *v)
 {
-	if (v->n_lines == (v->col_s - 1))
+	int	tmp;
+
+	tmp = (v->col_s - 1) * v->n_lines;
+	tmp = tmp / v->n_lines;
+	if (tmp != (v->col_s - 1))
 	{
 		ft_printf("ERROR MAP \nshould be rectangular \n");
 		ft_exit(v);
@@ -59,42 +63,21 @@ int	validation_map(t_v *v)
 		{
 			if (v->map[0][v->k] != '1' || v->map[v->n_lines - 1][v->k] != '1')
 			{
-				ft_printf("ERROR MAP 1\n");
+				ft_printf("ERROR MAP\n");
 				ft_exit(v);
 			}
 			if (v->map[v->m][0] != '1' || v->map[v->m][v->col_s - 2] != '1')
 			{
-				ft_printf("ERROR MAP 2\n");
+				ft_printf("ERROR MAP\n");
 				ft_exit(v);
 			}
 			v->k++;
 		}
 		v->m++;
 	}
-	if (valid_p_c_e(v) == 0 || val_rectangle(v) == 0 )
-		return (0);
+	if (valid_p_c_e(v) == 0 || val_rectangle(v) == 0)
+		print_error();
 	return (1);
-}
-
-int	validation_c(t_v *v)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (i < v->n_lines)
-	{
-		j = 0;
-		while (j < (v->col_s - 1))
-		{
-			if (v->map[i][j] == 'C')
-				return (1);
-			j++;
-		}
-		i++;
-	}
-	return (0);
 }
 
 static int	ber_f(char *str)
